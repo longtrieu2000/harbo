@@ -30,9 +30,12 @@ http:
   debug:
     addr: localhost:5001
 auth:
-  htpasswd:
-    realm: harbor-registry-basic-realm
-    path: /etc/registry/passwd
+  token:
+    realm: http://172.25.240.174:8080/service/token
+    service: harbor-registry
+    issuer: harbor-token-issuer
+    rootcertbundle: /etc/registry/root.crt
+    #autoredirect: true
 validation:
   disabled: true
 compatibility:
